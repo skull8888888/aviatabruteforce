@@ -69,10 +69,20 @@ const changePassword = (code) => {
         }
     }, (err, res, body) => {
         console.log(body)
+        process.exit(0)
     })
 }
 
 // з
+
+cluster.on('exit', function(worker, code, signal) {
+    console.log('worker ' + worker.process.pid + ' died')
+
+    for (var id in cluster.workers) {
+        cluster.workers[id].kill();
+    }
+    process.exit(0);
+});
 
 if (cluster.isMaster) {
     console.log(`Master ${process.pid} is running`);
