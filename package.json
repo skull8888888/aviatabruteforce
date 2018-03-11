@@ -1,0 +1,14 @@
+{
+  "name": "abf",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "nodemon": "^1.17.1",
+    "randomatic": "^3.0.0",
+    "request": "^2.83.0"
+  }
+}
